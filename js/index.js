@@ -9,12 +9,27 @@ import { initWebSocket } from "./ws.js";
 import { initSdk } from "./sdk.js";
 import { showPopup } from "./utils.js";
 
+function checkSSSConnection() {
+  if (!window.SSS || !window.SSS.activePublicKey) {
+    showPopup("SSS Extension とリンクしてください（アカウントを選択）", true);
+  }
+}
+
 window.addEventListener("load", async () => {
 
-  // ① まず SSS 接続 / ノード選択（ネットワーク判別に必要）
+  // ① SSS 接続 / ノード選択（ネットワーク判別に必要）
   await autoConnectSSS();
 
-  // ② SDK を初期化
+  // ② SSS が未接続なら pop-up
+  if (!window.SSS || !window.SSS.activePublicKey) {
+    showPopup(
+      "⚠️ SSS Extension とリンクしてください 🔗<br>Symbol アカウントを選択する必要があります。",
+      true
+    );
+    return;
+  }
+
+  // ③ SDK を初期化
   await initSdk();
 
   // ========= イベント登録 =========

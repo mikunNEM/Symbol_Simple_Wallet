@@ -42,7 +42,7 @@ export function showPopup(message, isError = false) {
     setTimeout(() => {
       popup.style.display = "none";
     }, 400);
-  }, 2000);
+  }, 3000);
 }
 
 

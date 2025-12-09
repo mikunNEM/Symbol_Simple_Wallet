@@ -249,3 +249,113 @@ body {
   background: #6366f1;
 }
 
+/* ==========================
+   モバイル完全最適化（決定版）
+========================== */
+@media (max-width: 768px) {
+
+  /* ===== 全体の左右余白 ===== */
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  .container {
+    padding: 10px 20px 40px 20px;
+    gap: 32px;
+  }
+
+  /* ===== Header ===== */
+  header {
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+  }
+
+  header h2 {
+    font-size: 24px;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .header-info {
+    margin-top: 4px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .header-info p {
+    margin: 0;
+  }
+
+  /* ===== Card ===== */
+  .card {
+    padding: 22px 20px;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  }
+
+  .card h2 {
+    font-size: 20px;
+    margin-bottom: 18px;
+    line-height: 1.4;
+  }
+
+  /* ===== アドレス表示行 ===== */
+  .address-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .address-text {
+    font-size: 15px;
+    word-break: break-all;
+    line-height: 1.45;
+  }
+
+  .copy-btn {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+  /* ===== 入力欄 ===== */
+  input.input-box,
+  textarea.input-box {
+    width: 100%;
+    padding: 14px 14px;
+    font-size: 15px;
+    border-radius: 12px;
+    margin-bottom: 14px;
+    box-sizing: border-box;
+  }
+
+  textarea.input-box {
+    min-height: 120px;
+  }
+
+  /* ===== 送金ボタン ===== */
+  .button-primary {
+    width: 100%;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 6px;
+    border-radius: 12px;
+  }
+
+  /* ===== TXカード ===== */
+  .tx-item {
+    padding: 18px 16px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+  }
+
+  .tx-title {
+    font-size: 16px;
+  }
+}
