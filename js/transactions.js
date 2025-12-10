@@ -47,14 +47,15 @@ function extractAmount(tx, myAddress) {
 
   const amount = Number(mosaic.amount) / 1_000_000;
 
-  const recipientRaw = tx.recipientAddress;
-  const myRaw = myAddress.replace(/-/g, "").toUpperCase();
+  // ▼ signer と自分の公開鍵で送信/受信を判定
+  const signer = (tx.signerPublicKey || "").toUpperCase();
+  const myPub = (appState.currentPubKey || "").toUpperCase();
 
-  const isReceive = recipientRaw.endsWith(myRaw);
+  const direction = signer === myPub ? "send" : "receive";
 
   return {
     amount,
-    direction: isReceive ? "receive" : "send",
+    direction,
   };
 }
 
@@ -214,8 +215,6 @@ export function initLiveTx(address) {
     };
 
     txMap[hash] = txInfo;
-
-
 
     appendTx(txInfo);
   });
