@@ -19,7 +19,8 @@ export async function sendTx() {
   const amountStr = document.getElementById("tx-amount").value;
   const messageText = document.getElementById("tx-message").value || "";
 
-  if (!recipientRaw || !amountStr) {
+  // ▼ 修正：amountStr === "" のときだけ弾く（0 は許可）
+  if (!recipientRaw || amountStr === "") {
     setStatus("tx-status", "アドレスと金額は必須です。", "error");
     return;
   }
@@ -27,7 +28,8 @@ export async function sendTx() {
   const recipientAddress = new appState.sdkSymbol.Address(recipientRaw);
   const amount = Number(amountStr);
 
-  if (Number.isNaN(amount) || amount <= 0) {
+  // ▼ 修正：NaN と負の値だけ禁止（0 は OK）
+  if (Number.isNaN(amount) || amount < 0) {
     setStatus("tx-status", "金額が不正です。", "error");
     return;
   }
