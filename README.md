@@ -12,7 +12,7 @@
 このウォレットは **SSS Extension なしでは絶対に動きません**  
 （秘密鍵はSSS Extension内で完結するため、ウォレット側には一切出てきません）
 
-- Chrome → [インストール](https://chrome.google.com/webstore/detail/sss-extension/llildiojemakefgnhhkmiiffonembcan)
+- Chrome拡張機能 → [インストール](https://chrome.google.com/webstore/detail/sss-extension/llildiojemakefgnhhkmiiffonembcan)
 
 [SSS Extensionの使い方・設定方法はこちら](https://docs.sss-symbol.com/ja/category/users-guide/)
 
